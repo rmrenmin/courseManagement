@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <style>
+        .box{
+            padding-top: 3%;
+            padding-left: 35%;
+        }
+    </style>
+    <title>学生注册</title>
+</head>
+
+<body>
+    <div class="layui-container">
+        <form class="layui-form  box" lay-filter="form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">账号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="account" required lay-verify="required" placeholder="请输入账号" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux"></div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">姓名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="name" required lay-verify="required" placeholder="请输入姓名" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item " style="width:300px;">
+                <label class="layui-form-label">专业选择</label>
+                <div class="layui-input-block">
+                    <select name="specialty" lay-filter="specialty" lay-verify="required" id="specialty">
+
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="width:300px;">
+                <label class="layui-form-label">班级选择</label>
+                <div class="layui-input-block">
+                    <select name="class" lay-verify="required" id="class">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">单选框</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex" value="男" title="男">
+                    <input type="radio" name="sex" value="女" title="女" checked>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">验证码</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="coder" required lay-verify="required" placeholder="请输入验证码" autocomplete="off"
+                        class="layui-input">
+                    <img src="/coder" alt="" id="coderimg">
+                </div>
+                <div class="layui-form-mid layui-word-aux"></div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo" type="button" id="btn">注册</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="/layui/layui.all.js"></script>
+    <script src="/students/js/register.js"></script>
+</body>
+
+</html>

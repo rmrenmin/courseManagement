@@ -1,4 +1,4 @@
-const express =require('express');
+﻿const express =require('express');
 const ejs = require('ejs');
 const bodyParser=require('body-parser');
 const mysql = require('mysql');
@@ -26,9 +26,9 @@ app.set('views','./views');
 global.conn = mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'159357',
+    password:'123456',
     port:3306,
-    database:'app'
+    database:'cousermanage'
 });
 conn.connect();
 
@@ -58,7 +58,7 @@ const upload = multer({storage:diskStorage});
 //验证码
 app.get('/coder',(req,res)=>{
     var captcha=svgCaptcha.create({
-        size:4,
+        size:1,
         color:true,
         noise:2,
         ignoreChars:'0o1il',
@@ -71,7 +71,6 @@ app.get('/coder',(req,res)=>{
 
 //上传图片接口
 app.post('/uploads',upload.array('images'),(req,res)=>{
-    // console.log(req.files);
     let data=[];
     for(const ad of req.files) {
         let path = hostname + ad.path.replace(/\\/g,'/');
@@ -83,21 +82,21 @@ app.post('/uploads',upload.array('images'),(req,res)=>{
     });
 });
 
-
 //子路由
 //管理员
 // app.use('/admin/login',require('./module/admin/login'));
-app.use('/admin',require('./module/admin/index'));
+app.use('/admin',require('./module/admin/'));
 //教师用户
-app.use('/teacher',require('./module/teacher/index'));
+app.use('/teacher',require('./module/teacher/'));
 
 //学生
-app.use('/',require('./module/students/index'));
+app.use('/',require('./module/students/'));
 
+//test
 
 //静态托管
 app.use(express.static('static'));
-
+app.use(express.static('uploads'));
 
  //端口
  app.listen('8081',function(){
