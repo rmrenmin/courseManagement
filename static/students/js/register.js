@@ -39,7 +39,7 @@ window.onload = function () {
             }
         }
     }
-
+    //根据专业更新班级
     layui.form.on('select(specialty)', function (val) {
         cl.innerHTML = '';
         for (let e of data[val.value]) {
@@ -51,34 +51,48 @@ window.onload = function () {
         }
 
     })
-    btn.addEventListener('click', function () {
-        let account = document.querySelector('input[name=account]');
-        let password = document.querySelector('input[name=password]');
-        let name = document.querySelector('input[name=name]');
-        let class1 = document.querySelector('select[name=class]');
-        let sex = document.querySelectorAll('input[name=sex]');
-        let coder = document.querySelector('input[name=coder]');
-        let xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        xhr.open('post', '/register');
-        xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-        xhr.send(`account=${account.value}&password=${password.value}&name=${name.value}&class=${class1.value}&sex=${sex[0].checked ? sex[0].value : sex[1].value}&coder=${coder.value}`);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                let re = JSON.parse(xhr.responseText);
-                if (re.status === 'error') {
-                    alert(re.message);
-                }else{
-                    window.location.href = '/students/login.html';
-                }
-            }
-            img.click();
-        }
-        return false;
-    });
     //更新验证码
     let img = document.querySelector('#coderimg');
     img.addEventListener('click', function () {
         this.src = '/coder?' + new Date();
     });
-
+    //操作进度条
+    let pro = $('.layui-progress');
+    $('input').on('blur', function () {
+        let el = $(this);
+        if (el.val()) {
+            pro.data(el.attr('name'), el.val());
+        } else {
+            pro.removeData(el.attr('name'));
+        }
+        layui.element.progress('progress', Math.round((Object.keys(pro.data()).length / 7 + 3 / 7) * 100).toString() + '%');
+    });
+    //登录跳转
+    $('#login').click(() => {
+        window.location.href = '/students/login.html';
+    })
+    //注册提交
+    $('#btn').click(() => {
+        //不等于4表示还有未填项
+        if (Object.keys(pro.data()).length === 4) {
+            $.ajax({
+                url: '/register',
+                type: 'post',
+                dataType: 'json',
+                data: $('.layui-form').serialize(),
+                success: function (data) {
+                    if (data.status === 'ok') {
+                        msgSuccess(data.message);
+                        setTimeout(()=>{
+                            window.location.href = '/students/login.html';
+                        },2500);
+                    } else {
+                        img.click();
+                        msgError(data.message);
+                    }
+                }
+            })
+        }
+    });
+    
 }

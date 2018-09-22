@@ -7,46 +7,81 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/layui/css/layui.css">
     <title>学生登录</title>
+    <style>
+        .define-center{
+            text-align: center;
+        }
+        .define-padding{
+            padding-top: 20px;
+        }
+        .define-title{
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            font-size: 30px;
+            text-align: center;
+            margin: auto;
+        }
+        .define-color{
+            color:black;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="layui-fluid">
-        <form class="layui-form">
-            <div class="layui-form-item">
-                <label class="layui-form-label">账号</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="account" required lay-verify="required" placeholder="请输入账号" autocomplete="off"
-                        class="layui-input">
+<body class="layui-bg-black">
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md4 layui-col-md-offset4">
+                <div class="define-title layui-circle layui-anim layui-anim-rotate layui-input-block">
+                    学生登录
                 </div>
             </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">密码</label>
-                <div class="layui-input-inline">
-                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
-                        autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid layui-word-aux"></div>
+
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md4 layui-col-md-offset4">
+                <form class="layui-form">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">账号</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="account" required lay-verify="required" placeholder="请输入账号"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-inline">
+                            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">验证码</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="coder" required lay-verify="required" placeholder="请输入验证码"
+                                autocomplete="off" class="layui-input">
+                            <div class="define-padding">
+                                <img src="/coder" alt="" id="coderimg">
+                            </div>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit type="button" id="login">登录</button>
+                            <button type="button" class="layui-btn layui-btn-primary" id="register">注册</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">验证码</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="coder" required lay-verify="required" placeholder="请输入验证码" autocomplete="off"
-                        class="layui-input">
-                    <img src="/coder" alt="" id="coderimg">
-                </div>
-                <div class="layui-form-mid layui-word-aux"></div>
-            </div>
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit  type="button" id="login">登录</button>
-                    <button type="button" class="layui-btn layui-btn-primary" id="register">注册</button>
-                </div>
-            </div>
-        </form>
+        </div>
+
     </div>
     <script src="/jquery/jquery3.1.js"></script>
     <script src="/layui/layui.all.js"></script>
     <script src="/students/js/login.js"></script>
+    <script src="/students/js/util.js"></script>
 </body>
 
 </html>

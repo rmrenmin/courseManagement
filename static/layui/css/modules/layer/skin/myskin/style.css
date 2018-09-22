@@ -1,0 +1,10 @@
+body .define-content-error .layui-layer-content{
+    color: red !important;
+    text-align: center;
+    line-height: 50px;
+}
+body .define-content-success .layui-layer-content{
+    color: green !important;
+    text-align: center;
+    line-height: 50px;
+}
