@@ -1,0 +1,35 @@
+<% include header.html%>
+<div class="layui-container">
+    <div class="layui-row">
+        <table class="layui-table">
+            <colgroup>
+                <col width="100">
+                <col width="100">
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>学号id</th>
+                    <th>班级</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>专业</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let s of sinfo){ %>
+                    <tr>
+                        <td><%= s.s_id%></td>
+                        <td><%= s.s_class%></td>
+                        <td><%= s.s_name%></td>
+                        <td><%= s.s_sex%></td>
+                        <td><%= s.c_specialty%></td>
+                    </tr>>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+</div>
+<% include footer.html%>

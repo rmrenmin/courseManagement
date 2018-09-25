@@ -1,0 +1,49 @@
+<% include header.html%>
+    <style>
+        .ichange{
+            width: 360px;
+        }
+        h3{
+            padding: 30px;
+        }
+        .layui-row {
+            margin: 30px 0px ;
+        }
+        .layui-form-label {
+            font-size: 16px;
+        }
+        .layui-btn {
+            margin-left: 120px;
+        }
+        .layui-btn {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+    </style>
+<div class="layui-container ichange">
+    <div class="layui-row">
+       <h3> 当前账号： <span style="color:red"><%= taccount%></span></h3>
+    </div>
+
+    <div class="layui-row">
+
+        <label class="layui-form-label">原密码：</label>
+        <div class="layui-input-inline">
+            <input type="text" name="oldpasswd" required lay-verify="required"  autocomplete="off"
+            class="layui-input" id="oldpasswd">
+            <input type="hidden" name="" value=<%= tpassword%> id='oldpasswd2'>
+        </div>
+    </div>
+    <div class="layui-row">
+        <label class="layui-form-label">新密码：</label>
+        <div class="layui-input-inline">
+            <input type="text" name="newpasswd" required lay-verify="required"  autocomplete="off"
+            class="layui-input" id="newpasswd">
+        </div>
+    </div>
+        <button class="layui-btn" lay-submit lay-filter="formDemo" type="button" id="change">提交</button>
+</div>
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/teacher/js/ichange.js"></script>
+<% include footer.html%>

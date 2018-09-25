@@ -1,0 +1,52 @@
+<% include header.html%>
+<style>
+    .query {
+            width: 400px;
+            height: 50px;
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            margin-top: 100px;
+        }
+    
+    
+    </style>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-form-item layui-form-pane query">
+            <label class="layui-form-label">班级编号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="sclass" id="sclass" required lay-verify="required" placeholder="例如:201801"
+                    autocomplete="off" class="layui-input">
+            </div>
+            <button class="layui-btn btn" lay-submit lay-filter="formDemo" type="button">查询</button>
+        </div>
+    </div>
+</div>
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('.btn').click(function () {
+            // console.log($('#sclass').val());
+            $.ajax({
+                url:'/teacher/login/tstudents',
+                type:'post',
+                dataType:'json',
+                data:{sclass:$('#sclass').val()},
+                success:function(data){
+                    if(data.re=='no_class'){
+                        alert('班级输入错误');
+                        window.location.reload();
+                    }
+                    if(data.re='ok'){
+                        window.location.href='/teacher/login/sinfo';
+                    }
+                }
+            });
+        });
+    });
+</script>
+<% include footer.html%>

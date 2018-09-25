@@ -1,0 +1,57 @@
+<% include header.html%>
+    <style>
+       .lesson tr {
+           padding: 0;
+           height: 80px;
+           
+       } 
+       .lesson td {
+           padding: 0;
+           text-align: center;
+           width: 120px;
+       }
+       .lesson th{
+           padding: 0;
+           text-align: center;
+       }
+    
+    </style>
+
+<div class="layui-container">
+    <div class="layui-row">
+        <table class="layui-table lesson">
+            <colgroup>
+                
+            </colgroup>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                </tr>
+            </thead>
+           <tbody>
+                <% for(let i=0;i<5;i++) { %>
+                        <tr>
+                            <td>第<%= (i*2+1)+' '+(i*2+2) %>节</td>>
+                            <% for(let j=1;j<=5;j++) { %>
+                                <td>
+                                    <% if(arr[i][j]) {%>
+                                        <%- arr[i][j].c_name +'</br>' +arr[i][j].c_addr+'</br>' +arr[i][j].c_class%>
+                                        
+                                    <% } %>
+                                </td>
+                            <% } %>
+                        </tr>
+                        <% } %>
+
+
+
+           </tbody>
+        </table>
+    </div>
+</div>
+<% include footer.html%>

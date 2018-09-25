@@ -1,0 +1,31 @@
+
+body{
+    background-image: url(../img/1494318631621.jpg);
+}
+
+#codeimg{
+    width: 150px;
+    height: 50px;
+    margin-left: 105px
+}
+
+.M {
+    width: 520px;
+    height: 400px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 150px;
+    background-color: rgba(rgb(9, 204, 211),rgb(0, 225, 255),blue, 0.5);
+}
+
+.H3 {
+    text-align: center;
+    font-size: 30px;
+    margin: 15px auto;
+    padding-top: 25px;
+    color: white;
+}

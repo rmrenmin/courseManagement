@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>欢迎登陆</title>
+    <link rel="stylesheet" href="/teacher/layui/css/layui.css">
+    <link rel="stylesheet" href="/teacher/css/log.css">
+</head>
+
+<body>
+
+    <div class="layui-container  M">
+        <h3 class="H3">欢迎登陆</h3>
+        <form class="layui-form" action="" id="login_form">
+            <div class="layui-form-item">
+                <label class="layui-form-label"> <i class="layui-icon layui-icon-username"></i>账号：</label>
+                <div class="layui-input-inline P">
+                    <input type="text" name="username" required lay-verify="required" placeholder="请输入账号" autocomplete="off"
+                        class="layui-input account">
+                </div>
+                <div class="layui-form-mid layui-word-aux alert1" style="color: red !important">账号必填</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><i class="layui-icon layui-icon-password"></i>密码：</label>
+                <div class="layui-input-inline P">
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input passwd">
+                </div>
+                <div class="layui-form-mid layui-word-aux alert2" style="color: red !important">密码必填</div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label"><i class="layui-icon layui-icon-vercode"></i>验证码:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="coder" required lay-verify="required" placeholder="请输入验证码/点击刷新"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux alert2" style="color: red !important">验证码必填</div>
+            </div>
+
+                <div class="layui-form-item layui-word-aux coder">
+                    <img src="/coder" alt="" id="codeimg" style="cursor:pointer">
+                </div>
+                
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn log-btn" lay-submit lay-filter="login" type="button">登陆</button>
+                    <button type="reset" class="layui-btn layui-btn-primary  re-btn">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/teacher/layui/layui.all.js"></script>
+    <script src="/teacher/js/log.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<% include header.html%>
+<div class="layui-container">
+    <div class="layui-row">
+        <table class="layui-table">
+            <colgroup>
+                <col width="100">
+                <col width="100">
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>当前账号</th>
+                    <th>姓名</th>
+                    <th>最后一次登录时间</th>
+                    <th>签名</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr> 
+                        <td> <%= tid%> </td>
+                        <td> <%= taccount%> </td>
+                        <td> <%= tname%> </td>
+                        <td> <%= ttimes%> </td>
+                        <td> 于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                    </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<% include footer.html%>

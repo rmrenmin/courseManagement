@@ -32,7 +32,7 @@ global.conn = mysql.createConnection({
     user: 'root',
     password: '123456',
     port: 3306,
-    database: 'cousermanage'
+    database: 'coursemanage'
 });
 conn.connect();
 
@@ -105,8 +105,8 @@ app.post('/uploads', upload.array('images'), (req, res) => {
 // app.use('/admin/login',require('./module/admin/login'));
 app.use('/admin', require('./module/admin/'));
 //教师用户
-app.use('/teacher', require('./module/teacher/'));
-
+app.use('/teacher',require('./module/teacher/'));
+app.use('/teacher/login',require('./module/teacher/login'));
 //学生
 app.use('/', require('./module/students/'));
 
