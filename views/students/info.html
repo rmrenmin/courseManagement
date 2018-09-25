@@ -11,25 +11,92 @@
 </head>
 
 <body>
+    <ul class="layui-nav">
+        <li class="layui-nav-item">
+            <img src="/students/img/head.png" alt="" width="40px" height="40px" style="border-radius:50%;">
+        </li>
+        <li class="layui-nav-item">
+            <a href="/info">个人中心</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="/info"><img src="//t.cn/RCzsdCq" class="layui-nav-img">
+                <%= stu.name %>
+            </a>
+            <dl class="layui-nav-child">
+                <dd id="update"><a href="javascript:void(0);">修改密码</a></dd>
+                <dd id="logout"><a href="javascript:void(0);">退出</a></dd>
+            </dl>
+        </li>
+    </ul>
+
     <div class="layui-flui">
         <div class="layui-tab layui-tab-card">
             <ul class="layui-tab-title">
                 <li class="layui-this">个人信息</li>
                 <li>课程查询</li>
                 <li>发布公告</li>
-                <li>回答问题</li>
+                <li>查看公告</li>
             </ul>
             <div class="layui-tab-content">
-                <div class="layui-tab-item layui-show" id="studentinfo"><% include studentinfo.html %></div>
-                <div class="layui-tab-item" id="currinfo"><% include currinfo.html %></div>
-                <div class="layui-tab-item" id="notice"><% include notice.html %></div>
-                <div class="layui-tab-item" id="answer"><% include answer.html %></div>
+                <div class="layui-tab-item layui-show" id="studentinfo">
+                    <% include studentinfo.html %>
+                </div>
+                <div class="layui-tab-item" id="currinfo">
+                    <% include currinfo.html %>
+                </div>
+                <div class="layui-tab-item" id="notice">
+                    <% include notice.html %>
+                </div>
+                <div class="layui-tab-item" id="answer">
+                    <% include lookNotice.html %>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="layui-fluid" style="display:none;padding-top: 20px;padding-right: 20px;" id="pw">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">旧密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="oldpassword" required lay-verify="required" placeholder="请输入旧密码"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">新密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入新密码"
+                        autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux"></div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">验证码</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="coder" required lay-verify="required" placeholder="请输入验证码" autocomplete="off"
+                        class="layui-input">
+                    <div class="define-padding">
+                        <img src="/coder" alt="" id="coderimg">
+                    </div>
+                </div>
+                <div class="layui-form-mid layui-word-aux"></div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit type="button" id="updatepasswd">确定修改</button>
+                    <button type="button" class="layui-btn layui-btn-primary" id="cancel">取消</button>
+                </div>
+            </div>
+        </form>
     </div>
     <script src="/jquery/jquery3.1.js"></script>
     <script src="/layui/layui.all.js"></script>
     <script src="/students/js/info.js"></script>
+    <script src="/students/js/logout.js"></script>
+    <script src="/students/js/updatePassword.js"></script>
+    <script src="/students/js/notice.js"></script>
+    <script src="/students/js/util.js"></script>
 </body>
 
 </html>

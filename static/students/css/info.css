@@ -4,3 +4,18 @@ p {
     padding-top: 10px;
 }
 
+.load {
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.bg {
+    background: #c2c2c2;
+}

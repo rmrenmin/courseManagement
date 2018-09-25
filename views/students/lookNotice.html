@@ -1,0 +1,28 @@
+<div class="layui-container">
+    <div class="layui-row layui-col-space20">
+        <div class="layui-col-md4">
+            <ul class="layui-timeline">
+                <% for(let el of notice) {%>
+                <li class="layui-timeline-item cursor" data-id="<%=el.n_id%>">
+                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                    <div class="layui-timeline-content layui-text">
+                        <h3 class="layui-timeline-title">
+                            <%= `${el.n_time.getFullYear()}年${el.n_time.getMonth()+1}月${el.n_time.getDate()}日${el.n_time.getHours()}时`%>
+                        </h3>
+                        <p>
+                            <%=el.n_title %>
+                        </p>
+                    </div>
+                </li>
+                <%}%>
+            </ul>
+            <div class="layui-row" id="rm">
+                <div id="load" class="load layui-col-md4 layui-col-md-offset4" data-num="<%=notice.number%>" data-sum="<%=notice[0].sum%>">单击加载更多</div>
+            </div>
+        </div>
+        <div class="layui-col-md8" id="content">
+
+        </div>
+    </div>
+
+</div>
