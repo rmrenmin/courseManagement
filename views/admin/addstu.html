@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+
+    <link rel="stylesheet" href="/admin/index.css">
+    <title>添加学生</title>
+</head>
+
+<body>
+    <div class="layui-fluid" id="lay_pad">
+        <div class="layui-row">
+            <div class="layui-col-md2 left">
+                <% include left_nav.html%>
+            </div>
+            <div class="layui-col-md10 right">
+                <% include header_stu.html%>
+                    <div class="main">
+                        <h3 id="H3">学生信息添加</h3>
+                        <form class="layui-form fron_t" action="" id="add_stu">
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label">学生账号</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="s_account" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input input_t"
+                                        id="s_account">
+                                         <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label">学生姓名</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="s_name" required lay-verify="required" placeholder="请输入学生姓名" autocomplete="off" class="layui-input input_t"
+                                        id="s_name">
+                                         <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label">单选框</label>
+                                <div class="">
+                                    <input type="radio" name="s_sex" value="男" title="男" checked="" class="danyuan">
+                                    <input type="radio" name="s_sex" value="女" title="女">
+                                    <input type="radio" name="s_sex" value="禁" title="保密" >
+                                     <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label">学生班级</label>
+                                <div class="layui-input-inline">
+                                    <select name="s_class" lay-verify="">
+                                        <option value=""></option>
+                                        <% for (let k of lists){%>
+                                        <option value="<%=k.c_class %>"><%= k.c_class%><%= k.c_specialty%></option>
+                                        <% }%>
+                                    </select>
+                                     <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label">初始密码</label>
+                                <div class="layui-input-inline">
+                                    <input type="password" name="s_password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input input_t"
+                                        id="s_password">
+                                         <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item btn_left">
+                                <div class="layui-input-inline">
+                                    <button class="layui-btn" id="addstu" type="button">添加</button>
+                                    <button class="layui-btn" id="resstu" type="button">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="/admin/addstu.js"></script>
+    <script src="/layui/layui.all.js"></script>
+</body>
+
+</html>

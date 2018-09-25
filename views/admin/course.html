@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/admin/index.css">
+    <title>课程管理页面</title>
+</head>
+
+<body>
+    <div class="layui-fluid" id="lay_pad">
+
+        <div class="layui-row">
+            <div class="layui-col-md2 left">
+                <% include left_nav.html%>
+            </div>
+            <div class="layui-col-md10 right">
+                <% include header_cours.html%>
+                    <div class="main">
+                        <h3 id="H3">课程页面</h3>
+                        <form class="layui-form fron_t" action="" id="addcour">
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label lable_text">课程名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="c_name" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input input_t"
+                                        id="c_name">
+                                        <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label lable_text">任课教师账户</label>
+                                <div class="layui-input-inline">
+                                    <select name="c_account" lay-verify="required">
+                                        <option value=""></option>
+                                        <% for (let k of tealist){%>
+                                        <option value="<%=k.t_account %>"><%= k.t_account%><%= k.t_name%></option>
+                                        <% }%>
+                                    </select>
+                                    <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label lable_text">班级编号</label>
+                                <div class="layui-input-inline">
+                                    <select name="c_class" lay-verify="required">
+                                        <option value=""></option>
+                                        <% for (let k of lists){%>
+                                        <option value="<%=k.c_class %>"><%= k.c_class%><%= k.c_specialty%></option>
+                                        <% }%>
+                                    </select>
+                                    <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label lable_text">上课时间</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="c_time" required lay-verify="required" placeholder="请输入上课时间" autocomplete="off" class="layui-input input_t"
+                                        id="c_time">
+                                        <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label lable_text">上课开始时间</label>
+                                <div class="layui-input-inline">
+                                    <div class="layui-inline">
+                                        <input type="text" class="layui-input" id="test1" name="c_start">
+                                   <div class="red_text1">不能为空</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label lable_text">上课结束时间</label>
+                                <div class="layui-input-inline">
+                                    <div class="layui-inline">
+                                        <input type="text" class="layui-input" id="test2" name="c_end">
+                                  <div class="red_text1">不能为空</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item marg_div">
+                                <label class="layui-form-label lable_text">上课地点</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="c_addr" required lay-verify="required" placeholder="请输入地点" autocomplete="off" class="layui-input input_t"
+                                        id="c_addr">
+                                        <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item btn_left">
+                                <div class="layui-input-inline">
+                                    <button class="layui-btn" id="addcourse" type="button">添加</button>
+                                    <button class="layui-btn" id="rescourse" type="button">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="/admin/addcour.js"></script>
+    <script src="/layui/layui.all.js"></script>
+    <script>
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#test1' //指定元素
+            });
+        });
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#test2' //指定元素
+            });
+        });
+    </script>
+</body>
+
+</html>

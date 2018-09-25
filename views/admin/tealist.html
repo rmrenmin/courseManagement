@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/admin/index.css">
+    <title>教师信息列表</title>
+</head>
+
+<body>
+    <div class="layui-fluid" id="lay_pad">
+        <div class="layui-row">
+            <div class="layui-col-md2 left">
+                <% include left_nav.html%>
+            </div>
+            <div class="layui-col-md10 right">
+                <% include header_tea.html%>
+                    <div class="main">
+                        <h3 id="H3">教师信息列表</h3>
+                        <table class="layui-table ">
+                            <colgroup>
+                                <col width="150">
+                                <col width="200">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>教师账号</th>
+                                    <th>教师名字</th>
+                                    <th>最近登陆时间</th>
+                                    <th  class="th">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(let k of lists){ %>
+                                    <tr>
+                                        <td>
+                                            <%=k.t_id%>
+                                        </td>
+                                        <td>
+                                            <%=k.t_account%>
+                                        </td>
+                                        <td>
+                                            <%=k.t_name%>
+                                        </td>
+                                        <td>
+                                            <%=k.t_times%>
+                                        </td>
+                                        <td  class="th">
+                                            <a href="###" sid="<%=k.t_account%>" class="deltea">删除</a>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Page navigation" class="nav_po">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="/admin/tealist?page=<%=page-1%>" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <% for(let p=start; p<=end; p++){ %>
+                                    <li<%- (page==p)?( ' class="active"'): ''%>>
+                                        <a href="/admin/tealist?page=<%=p%>">
+                                            <%=p%>
+                                        </a>
+                                        </li>
+                                        <% } %>
+                                            <li>
+                                                <a href="/admin/tealist?page=<%=(page*1+1 > totalpage) ? totalpage:(page*1+1) %>" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                            </ul>
+                        </nav>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="/admin/tealist.js"></script>
+</body>
+
+</html>

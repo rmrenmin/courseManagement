@@ -1,0 +1,152 @@
+.content{
+    width: 100%;
+    background-color: red;
+    background-image: url("/img/timg.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.mainBox{
+    width: 400px;
+    height: 360px;
+    border: 1px solid gainsboro;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    position: relative;
+    top: 140px;
+    left:60%;
+    padding: 10px;
+    border-radius:2%;
+    background-color: white;
+}
+
+#codeimg{
+    height: 34px;
+    border-radius: 5%;
+}
+.right{
+    height: 500px;
+    position: relative;
+}
+#lay_pad{
+    padding: 0px !important;
+}
+#left_ul{
+    width: 100%;
+    height: 662px;
+    /*padding-top: 20px;*/
+    background-color: lightseagreen;
+    text-align:center;
+    font-size: 16px;
+}
+.left_li{
+    line-height: 50px;
+    height: 50px;
+}
+.left_li:hover{
+    background-color:slategray; 
+    font-size: 18px;
+
+}
+a:hover{
+     color:turquoise !important; 
+}
+#H3{
+        font-size: 20px; 
+        font-weight: 700;
+}
+.input_t{
+    width: 400px !important;
+}
+.main{
+    width: 80%;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: absolute;
+    /*background-color: red;*/
+    left: 0px;
+}
+.annou_div{
+    margin: 10px 160px;
+    width:680px;
+    position: relative
+}
+.announ_name{
+    font-weight: 700;
+    color: dodgerblue;
+    font-size: 20px;
+}
+.announ_time{
+    font-size: 12px;
+    color:cornflowerblue;
+}
+.announ_title{
+    font-weight: 700px;
+    font-size: 20px;
+}
+.announ_class{
+    position: absolute;
+    right: 60px;
+    top: 0px;
+}
+.text_pad{
+    padding-right: 0px !important;
+    font-size: 16px  !important;
+    font-weight: 400  !important;
+}
+.btn-delu{
+    width: 120px;
+    height: 40px;
+    position: relative;
+    top: 20px;
+    left: -25px;
+}
+.fron_t{
+    margin-left: 20%;
+}
+/*.marg_div{
+    margin-top: 24px;
+}*/
+.btn_left{
+    position: relative;
+    left: 200px;
+    top: 30px;
+}
+.lable_text{
+    width: 120px;
+}
+#n_content{
+    width: 500px;
+    height: 200px;
+}
+.exit_login{
+    position: relative;
+    left:90%;
+    top:-40px;
+}
+.exit_login{
+    position: relative;
+    left:90%;
+    top:-40px;
+}
+#seacher{
+   /*margin-top: 10px;*/
+    display: inline-block;
+    font-size: 30px;
+    position: relative;
+    top:6px;
+}
+.input_t{
+    display: inline-block;
+}
+.nav_po{
+    position: relative;
+    left:50%;
+}
+.red_text{
+    color: red;
+}
+.red_text1{
+    color:white;
+}
+.th{width: 70px;}

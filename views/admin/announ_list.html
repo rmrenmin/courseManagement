@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/admin/index.css">
+    <title>所有公告</title>
+</head>
+
+<body>
+    <div class="layui-fluid" id="lay_pad">
+
+        <div class="layui-row">
+            <div class="layui-col-md2 left">
+                <% include left_nav.html%>
+            </div>
+            <div class="layui-col-md10 right">
+                <% include header_announ.html%>
+                    <div class="main">
+                        <% for(let k of lists){%>
+                            <div class="annou_div">
+                                <span class="announ_name"><%= k.n_name%></span>
+                                <span class="announ_time"><%= k.n_time%></span>
+                                <p class="announ_class">班级：
+                                    发布人：<%= k.n_class%>
+                                </p>
+                                <p class="announ_title">
+                                    主题：<%= k.n_title%>
+                                </p>
+                                <p class="announ_cont">
+                                    内容：<%= k.n_content%>
+                                </p>
+                                <hr>
+                            </div> 
+                            <% }%>
+                                <nav aria-label="Page navigation" class="nav_po">
+                                    <ul class="pagination">
+                                        <li>
+                                            <a href="/admin/announ_list?page=<%=page-1%>" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <% for(let p=start; p<=end; p++){ %>
+                                            <li<%- (page==p)?( ' class="active"'): ''%>>
+                                                <a href="/admin/announ_list?page=<%=p%>">
+                                                    <%=p%>
+                                                </a>
+                                                </li>
+                                                <% } %>
+                                                    <li>
+                                                        <a href="/admin/announ_list?page=<%=(page*1+1 > totalpage) ? totalpage:(page*1+1) %>" aria-label="Next">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                        </a>
+                                                    </li>
+                                    </ul>
+                                </nav>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

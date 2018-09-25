@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/admin/index.css">
+    <title>教师信息搜索</title>
+</head>
+
+<body>
+    <div class="layui-fluid" id="lay_pad">
+        <div class="layui-row">
+            <div class="layui-col-md2 left">
+                <% include left_nav.html%>
+            </div>
+            <div class="layui-col-md10 right" id="sea_box">
+                <% include header_cours.html%>
+                    <div class="main">
+                        <h3 id="H3">课表信息搜索</h3>
+                        <form class="layui-form fron_t" action="">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">班级</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="title" required lay-verify="required" placeholder="请输入搜索的教师账号" autocomplete="off" class="layui-input input_t"
+                                        id="c_class">
+                                    <div class="layui-icon layui-icon-search" id="seacher"></div>
+                                </div>
+                            </div>
+                        </form>
+                        <table class="layui-table fron_t" style="display: none" id="tab">
+                            <colgroup>
+                                <col width="150">
+                                <col width="200">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>课程名</th>
+                                    <th>课程班级</th>
+                                    <th>任课教师</th>
+                                    <th>上课时间</th>
+                                    <th>开始时间</th>
+                                    <th>结束时间</th>
+                                    <th>上课地点</th>
+                                     <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tea_tr">
+
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="/admin/cour_seach.js"></script>
+</body>
+
+</html>

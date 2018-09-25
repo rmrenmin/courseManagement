@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/admin/index.css">
+    <title>公告管理页面</title>
+</head>
+
+<body>
+    <div class="layui-fluid" id="lay_pad">
+
+        <div class="layui-row">
+            <div class="layui-col-md2 left">
+                <% include left_nav.html%>
+            </div>
+            <div class="layui-col-md10 right">
+                <% include header_announ.html%>
+                    <div class="main">
+                        <h3 id="H3">发布公告</h3>
+                        <form class="layui-form fron_t" action="" id="addann">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">班级编号</label>
+                                <div class="layui-input-inline">
+                                    <select name="n_class">
+                                        <option value=""></option>
+                                        <% for (let k of lists){%>
+                                        <option value="<%=k.c_class %>"><%= k.c_class%><%= k.c_specialty%></option>
+                                        <% }%>
+                                    </select>
+                                    <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">公告主题</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="n_title" placeholder="请输入主题" autocomplete="off" class="layui-input input_t" id="n_title">
+                                <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">公告内容(<span class="H">*</span>)</label>
+                                <div class="layui-input-block">
+                                    <textarea name="n_content" id="n_content" placeholder="请输入" class="layui-textarea"></textarea>
+                               <div class="red_text1">不能为空</div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item btn_left">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" type="button" lay-submit lay-filter="addannoun" id="addannoun">发布</button>
+                                    <button class="layui-btn" id="resannoun" type="button">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+    <script src="/layui/layui.all.js"></script>
+    <script src="/admin/announ.js"></script>
+    <script src=""></script>
+</body>
+
+
+</html>
