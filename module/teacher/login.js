@@ -48,7 +48,7 @@ router.get('/lesson', (req, res) => {
         for (let obj of results) {
             arr[Math.floor(obj.c_time / 10) - 1][obj.c_time % 10] = obj;
         };
-        console.log(arr);
+        // console.log(arr);
         res.render('teacher/lesson', idata);
     });
 });
@@ -86,7 +86,7 @@ router.get('/sinfo',(req,res)=>{
     idata.taccount = req.session.taccount;
     idata.tpassword = req.session.tpassword;
     idata.sinfo = req.session.sinfo;
-    console.log(idata);
+    // console.log(idata);
     res.render('teacher/sinfo',idata);
 });
 
