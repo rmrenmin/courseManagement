@@ -152,6 +152,7 @@ a:hover{
 .th{width: 70px;}
 .gron_z{
     position: relative;
+    left: -100px;
 }
 .se_z{
      position: relative;

@@ -26,7 +26,7 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label">班级编号</label>
                                 <div class="layui-input-inline">
-                                    <select name="n_class se_z">
+                                    <select name="n_class">
                                         <option value=""></option>
                                         <% for (let k of lists){%>
                                         <option value="<%=k.c_class %>"><%= k.c_class%><%= k.c_specialty%></option>
@@ -46,7 +46,7 @@
                                 <label class="layui-form-label">公告内容(<span class="H">*</span>)</label>
                                 <div class="layui-input-block">
                                     <div id="contenteditor" style="width:800px;"></div>
-                                    <textarea name="n_content" id="n_content" placeholder="请输入" class="layui-textarea"></textarea>
+                                    <textarea name="n_content" id="n_content" placeholder="请输入" class="layui-textarea" style="display: none"></textarea>
                                     <div class="red_text1">不能为空</div>
                                 </div>
                             </div>
