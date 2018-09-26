@@ -100,6 +100,10 @@ app.post('/uploads', upload.array('images'), (req, res) => {
     });
 });
 
+//首页
+app.use('/index', (req,res)=>{
+    res.redirect('/students/login.html');
+});
 //子路由
 //管理员
 // app.use('/admin/login',require('./module/admin/login'));
