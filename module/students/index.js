@@ -14,7 +14,7 @@ router.get('/register', (req, res) => {
             });
             return;
         }
-        res.json(results);
+        res.json(results);   
     })
 })
 // 注册路由 提交
