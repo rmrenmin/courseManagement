@@ -55,7 +55,9 @@
                                             <%=k.s_class%>
                                         </td>
                                         <td>
-                                            <%=k.s_times%>
+                                            <% if(k.s_times.toLocaleString()) {%>
+                                            <%=k.s_times.toLocaleString()%>
+                                            <% }%>
                                         </td>
                                         <td  class="th">
                                             <a href="###" sid="<%=k.s_account%>" class="delstu">删除</a>

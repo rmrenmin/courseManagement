@@ -51,8 +51,8 @@ router.post("/addtea", (req, ress) => {
             console.log("账号存在")
             return;
         }
-        let sqll = 'INSERT INTO teacher(t_account, t_name, t_password) VALUES (?,?,?)'
-        conn.query(sqll, [d.account, d.username, d.password,], (err, result) => {
+        let sqll = 'INSERT INTO teacher(t_account, t_name, t_password,t_times) VALUES (?,?,?,?)'
+        conn.query(sqll, [d.account, d.username, d.password,new Date().toLocaleString()], (err, result) => {
             ress.json({ r: 'ok' });
         })
     })
@@ -88,8 +88,8 @@ router.get("/tealist", (req, res) => {
         }else{
              showpage =5;
         }
-        let start = page - (showpage - 1) / 2;
-        let end = page * 1 + (showpage - 1) / 2;
+        let start = page - (showpage - 1) ;
+        let end = page * 1 + (showpage - 1);
         if (start < 1) {
             start = 1;
             end = start + showpage - 1;
@@ -166,8 +166,8 @@ router.get("/stu", (req, res) => {
         }else{
              showpage =5;
         }
-        let start = page - (showpage - 1) / 2;
-        let end = page * 1 + (showpage - 1) / 2;
+        let start = page - (showpage - 1) ;
+        let end = page * 1 + (showpage - 1);
         if (start < 1) {
             start = 1;
             end = start + showpage - 1;
@@ -225,8 +225,8 @@ router.post("/addstu", (req, res) => {
             console.log("账号存在")
             return;
         }
-        let sqll = 'INSERT INTO students(s_account, s_name, s_password,s_class,s_sex) VALUES (?,?,?,?,?)'
-        conn.query(sqll, [d.s_account, d.s_name, d.s_password, d.s_class, d.s_sex], (err, result) => {
+        let sqll = 'INSERT INTO students(s_account, s_name, s_password,s_class,s_sex,s_times) VALUES (?,?,?,?,?,?)'
+        conn.query(sqll, [d.s_account, d.s_name, d.s_password, d.s_class, d.s_sex,new Date().toLocaleString()], (err, result) => {
             res.json({ r: 'ok' });
         })
     })
@@ -279,8 +279,8 @@ router.get("/course", (req, res) => {
 router.post("/course", (req, ress) => {
     let d = req.body;
     console.log(d)
-    let sql = "SELECT c_class=? FROM curricuium where c_time=?"
-    conn.query(sql, [d.c_class, d.c_time], (err, result) => {
+    let sql = "SELECT * FROM curricuium where c_time=? and c_class=?"
+    conn.query(sql,  [d.c_time,d.c_class], (err, result) => {
         console.log(result)
         if (result.length) {
             ress.json({ r: 'course_exit' });
@@ -324,8 +324,8 @@ router.get("/cour_list", (req, res) => {
         }else{
              showpage =5;
         }
-        let start = page - (showpage - 1) / 2;
-        let end = page * 1 + (showpage - 1) / 2;
+        let start = page - (showpage - 1);
+        let end = page * 1 + (showpage - 1);
         if (start < 1) {
             start = 1;
             end = start + showpage - 1;
@@ -429,8 +429,8 @@ router.get("/announ_list", (req, res) => {
         }else{
              showpage =5;
         }
-        let start = page - (showpage - 1) / 2;
-        let end = page * 1 + (showpage - 1) / 2;
+        let start = page - (showpage - 1);
+        let end = page * 1 + (showpage - 1);
         if (start < 1) {
             start = 1;
             end = start + showpage - 1;
@@ -501,8 +501,8 @@ router.get("/clalist", (req, res) => {
         }else{
              showpage =5;
         }
-        let start = page - (showpage - 1) / 2;
-        let end = page * 1 + (showpage - 1) / 2;
+        let start = page - (showpage - 1);
+        let end = page * 1 + (showpage - 1);
         if (start < 1) {
             start = 1;
             end = start + showpage - 1;

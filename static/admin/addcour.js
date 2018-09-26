@@ -29,7 +29,7 @@ $("#addcourse").click(function () {
         success: function (response) {
             console.log(response)
             if (response.r == "course_exit") {
-                alert("该事件段奕存在课程");
+                alert("该时间段已存在课程");
             }
             if (response.r == "ok") {
                 $(".red_text").attr("class", "hid red_text")

@@ -150,3 +150,18 @@ a:hover{
     color:white;
 }
 .th{width: 70px;}
+.gron_z{
+    position: relative;
+}
+.se_z{
+     position: relative;
+    z-index: 99999;
+    background-color: white;
+}
+.layui-form-selected dl{
+z-index: 99999;
+}
+img{
+    width: 100px;
+    height: 100px;
+}

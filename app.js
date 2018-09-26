@@ -103,7 +103,7 @@ app.post('/uploads', upload.array('images'), (req, res) => {
 //子路由
 //管理员
 // app.use('/admin/login',require('./module/admin/login'));
-app.use('/admin', require('./module/admin/'));
+app.use('/admin', require('./module/admin/index'));
 //教师用户
 app.use('/teacher',require('./module/teacher/'));
 app.use('/teacher/login',require('./module/teacher/login'));

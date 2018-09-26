@@ -22,11 +22,11 @@
                 <% include header_announ.html%>
                     <div class="main">
                         <h3 id="H3">发布公告</h3>
-                        <form class="layui-form fron_t" action="" id="addann">
+                        <form class="layui-form fron_t gron_z" action="" id="addann">
                             <div class="layui-form-item">
                                 <label class="layui-form-label">班级编号</label>
                                 <div class="layui-input-inline">
-                                    <select name="n_class">
+                                    <select name="n_class se_z">
                                         <option value=""></option>
                                         <% for (let k of lists){%>
                                         <option value="<%=k.c_class %>"><%= k.c_class%><%= k.c_specialty%></option>
@@ -39,14 +39,15 @@
                                 <label class="layui-form-label">公告主题</label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="n_title" placeholder="请输入主题" autocomplete="off" class="layui-input input_t" id="n_title">
-                                <div class="red_text1">不能为空</div>
+                                    <div class="red_text1">不能为空</div>
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <label class="layui-form-label">公告内容(<span class="H">*</span>)</label>
                                 <div class="layui-input-block">
+                                    <div id="contenteditor" style="width:800px;"></div>
                                     <textarea name="n_content" id="n_content" placeholder="请输入" class="layui-textarea"></textarea>
-                               <div class="red_text1">不能为空</div>
+                                    <div class="red_text1">不能为空</div>
                                 </div>
                             </div>
                             <div class="layui-form-item btn_left">
@@ -63,8 +64,21 @@
     <script src="http://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
     <script src="/layui/layui.all.js"></script>
     <script src="/admin/announ.js"></script>
-    <script src=""></script>
+    <script type="text/javascript">
+        window.onload = function () {
+             var E = window.wangEditor;
+            var contenteditor = new E('#contenteditor');
+            // 配置服务器端地址
+            contenteditor.customConfig.uploadImgServer = '/uploads';
+            contenteditor.customConfig.uploadFileName = 'images';
+            // 同步内容到textarea
+            var $n_content = $('#n_content');
+            contenteditor.customConfig.onchange = function (html) {
+                $n_content.val(html);
+            }
+            contenteditor.create();
+        }
+    </script>
 </body>
-
 
 </html>

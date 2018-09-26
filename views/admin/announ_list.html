@@ -25,7 +25,7 @@
                         <% for(let k of lists){%>
                             <div class="annou_div">
                                 <span class="announ_name"><%= k.n_name%></span>
-                                <span class="announ_time"><%= k.n_time%></span>
+                                <span class="announ_time"><%= k.n_time.toLocaleString()%></span>
                                 <p class="announ_class">班级：
                                     发布人：<%= k.n_class%>
                                 </p>
@@ -33,7 +33,7 @@
                                     主题：<%= k.n_title%>
                                 </p>
                                 <p class="announ_cont">
-                                    内容：<%= k.n_content%>
+                                    内容：<%- k.n_content%>
                                 </p>
                                 <hr>
                             </div> 
