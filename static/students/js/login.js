@@ -29,5 +29,9 @@ window.onload = function () {
                 }
             }
         })
+    });
+
+    $('#teacher').on('click',()=>{
+        window.location.href = '/teacher';
     })
 }

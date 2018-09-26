@@ -1,6 +1,7 @@
 <table class="layui-table">
     <thead>
         <tr>
+            <th>时段</th>
             <th>星期一</th>
             <th>星期二</th>
             <th>星期三</th>
@@ -13,18 +14,25 @@
     <tbody>
         <% for(let i=0;i<5;i++) { %>
         <tr>
+            <td>第
+                <%= (i*2+1)+' '+(i*2+2) %>节</td>
             <% for(let e=1;e<=7;e++) { %>
-                <td>
-                    <% if(currinfo[i][e]) {%>
-                        <span><%= currinfo[i][e].c_name %></span><br>
-                        <span><%= currinfo[i][e].t_name %></span><br>
-                        <strong><%= currinfo[i][e].c_addr %></strong><br>
-                        <span><%= currinfo[i][e].c_start %>--<%= currinfo[i][e].c_end %></span>
-                    <% } %>
-                </td>
+            <td>
+                <% if(currinfo[i][e]) {%>
+                <span>
+                    <%= currinfo[i][e].c_name %></span><br>
+                <span>
+                    <%= currinfo[i][e].t_name %></span><br>
+                <strong>
+                    <%= currinfo[i][e].c_addr %></strong><br>
+                <span>
+                    <%= currinfo[i][e].c_start %>--
+                    <%= currinfo[i][e].c_end %></span>
+                <% } %>
+            </td>
             <% } %>
         </tr>
         <% } %>
-        
+
     </tbody>
 </table>
